@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RS TRANSPORT - Parcours prévention</title>
+  <meta name="theme-color" content="#061f3f" />
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <button class="icon-btn" id="backBtn" aria-label="Retour">‹</button>
+      <div class="logo-rs" aria-label="RS TRANSPORT">
+        <span class="r">R</span><span class="s">S</span><span class="transport">TRANSPORT</span><span class="speed"></span>
+      </div>
+      <button class="icon-btn" id="dashboardBtn" aria-label="Tableau de bord">☰</button>
+    </header>
+
+    <section class="screen active" id="homeScreen">
+      <div class="hero">
+        <div class="truck">
+          <div class="cab"></div>
+          <div class="box"><div class="box-logo"><span>R</span>S TRANSPORT</div></div>
+          <div class="wheel w1"></div><div class="wheel w2"></div><div class="wheel w3"></div>
+        </div>
+        <div class="diagonal"></div>
+      </div>
+      <h1>Bienvenue<br>chez <span>RS TRANSPORT</span></h1>
+      <div class="mini-line"></div>
+      <p class="lead"><strong>Votre sécurité est notre priorité.</strong><br>Avant votre prise de poste, merci de suivre ce parcours de prévention.</p>
+      <div class="features">
+        <div class="feat"><div class="picto">🛡️</div>Sécurité<br>avant tout</div>
+        <div class="feat"><div class="picto">👥</div>Tous acteurs<br>de la prévention</div>
+        <div class="feat"><div class="picto">✅</div>Ensemble<br>zéro accident</div>
+      </div>
+      <button class="btn" data-go="infoScreen">Commencer →</button>
+      <div class="footer-strip"></div>
+    </section>
+
+    <section class="screen" id="infoScreen">
+      <h2>Vos informations</h2>
+      <p class="lead">Merci de renseigner les informations suivantes avant de commencer le quiz.</p>
+      <div class="stepper"><span class="dot active">1</span><span class="line"></span><span class="dot">2</span><span class="line"></span><span class="dot">3</span><span class="line"></span><span class="dot">4</span></div>
+      <label class="field"><span>👤</span><input id="nom" placeholder="Nom" autocomplete="family-name"></label>
+      <label class="field"><span>👤</span><input id="prenom" placeholder="Prénom" autocomplete="given-name"></label>
+      <label class="field"><span>📍</span><select id="site"><option value="">Site</option><option>Agen</option><option>Pau</option><option>Mont-de-Marsan</option><option>Dax</option><option>Bergerac</option></select></label>
+      <label class="field"><span>🚚</span><select id="poste"><option value="">Poste occupé</option><option>Chauffeur-livreur VL</option><option>Chef d'équipe</option><option>Administratif</option></select></label>
+      <p class="error" id="formError"></p>
+      <button class="btn nav-bottom" id="saveUserBtn">Suivant →</button>
+    </section>
+
+    <section class="screen" id="introScreen">
+      <h2>Parcours prévention</h2>
+      <p class="lead">Ce parcours permet de tester vos connaissances sur les règles essentielles de sécurité.</p>
+      <div class="card-dark">
+        <div class="shield"></div>
+        <h2>Votre sécurité,<br>notre engagement !</h2>
+        <div class="checkline"><span class="check">✓</span>15 questions</div>
+        <div class="checkline"><span class="check">✓</span>Environ 5 minutes</div>
+        <div class="checkline"><span class="check">✓</span>Score minimum : 70 %</div>
+        <div class="checkline"><span class="check">✓</span>Attestation à la clé</div>
+      </div>
+      <button class="btn" id="startQuizBtn">Commencer le quiz →</button>
+    </section>
+
+    <section class="screen" id="quizScreen">
+      <div class="progress-label" id="qLabel">QUESTION 1 / 15</div>
+      <div class="progress"><span id="progressBar"></span></div>
+      <div class="question" id="questionText"></div>
+      <div class="hint">Sélectionnez la bonne réponse.</div>
+      <div class="answers" id="answers"></div>
+      <p class="error" id="quizError"></p>
+      <button class="btn nav-bottom" id="nextBtn">Suivant →</button>
+    </section>
+
+    <section class="screen" id="resultScreen">
+      <h2>Vos résultats</h2>
+      <div class="scorebox">
+        <div class="circle" id="circle"><div class="scoretext"><span id="scorePct">0%</span><small>SCORE</small></div></div>
+        <div id="resultTitle" class="success">FÉLICITATIONS !</div>
+      </div>
+      <div class="notice" id="resultMsg"></div>
+      <div id="recap"></div>
+      <button class="btn" id="certBtn">Voir mon attestation →</button>
+      <button class="btn secondary" id="retryBtn">Recommencer</button>
+      <button class="btn secondary" id="homeBtn">Retour accueil</button>
+    </section>
+
+    <section class="screen" id="certificateScreen">
+      <h2>Attestation</h2>
+      <p class="lead">Félicitations, vous avez validé le parcours prévention.</p>
+      <div class="cert" id="certificate">
+        <div class="logo-rs cert-logo">
+          <span class="r">R</span><span class="s">S</span><span class="transport">TRANSPORT</span><span class="speed"></span>
+        </div>
+        <div class="cert-title">ATTESTATION<br>DE RÉUSSITE</div>
+        <p>Décernée à</p>
+        <div class="person" id="certName">COLLABORATEUR</div>
+        <p>Pour la réussite du parcours prévention<br><strong>sécurité RS TRANSPORT</strong></p>
+        <p>Score obtenu : <strong id="certScore">0 %</strong></p>
+        <p>Date : <strong id="certDate"></strong></p>
+        <div class="seal">★</div>
+      </div>
+      <button class="btn dark" id="printBtn">Télécharger / Imprimer PDF ↓</button>
+      <button class="btn secondary" data-go="homeScreen">Retour à l'accueil</button>
+    </section>
+
+    <section class="screen" id="dashboardScreen">
+      <div class="dash">
+        <h2>Tableau de bord</h2>
+        <p>Statistiques générales</p>
+        <div class="statgrid">
+          <div class="stat"><span>Collaborateurs formés</span><strong id="trainedCount">0</strong></div>
+          <div class="stat"><span>Taux de réussite moyen</span><strong id="avgScore">0%</strong></div>
+          <div class="stat"><span>Quiz complétés</span><strong id="quizCount">0</strong></div>
+          <div class="stat"><span>En attente de validation</span><strong id="pendingCount">0</strong></div>
+        </div>
+        <h3>Dernières activités</h3>
+        <table id="activityTable"></table>
+        <button class="btn secondary light" data-go="homeScreen">Retour</button>
+        <button class="btn secondary light" id="clearDataBtn">Effacer les résultats test</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

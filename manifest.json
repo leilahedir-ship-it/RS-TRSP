@@ -1,0 +1,9 @@
+{
+  "name": "RS TRANSPORT - Prévention",
+  "short_name": "RS Prévention",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#061f3f",
+  "icons": []
+}
